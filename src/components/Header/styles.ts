@@ -21,8 +21,8 @@ export const Content = styled.div`
   .header-content {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     width: 100%;
+    margin-left: 16px;
 
     h1 {
       font-size: 32px;
