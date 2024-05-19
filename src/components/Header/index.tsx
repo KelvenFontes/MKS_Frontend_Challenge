@@ -3,7 +3,7 @@ import cart from '../../assets/cart.png';
 
 import { Container, Content } from './styles';
 
-export function Header() {
+const Header =() => {
   return (
     <Container>
       <Content>
@@ -22,3 +22,5 @@ export function Header() {
     </Container>
   );
 }
+
+export default Header;
