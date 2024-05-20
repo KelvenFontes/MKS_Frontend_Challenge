@@ -69,8 +69,12 @@ const StyledCartMenu = styled.div`
   @media screen and (min-width: 48em){
     width: 480px;
 
+    .total-price {
+      bottom: 120px;
+    }
+
     .content {
-    max-height: calc(100% - 130px);
+    max-height: calc(100% - 188px);
   }
 
     .button-finish {
