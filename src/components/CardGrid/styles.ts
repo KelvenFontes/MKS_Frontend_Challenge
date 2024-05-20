@@ -3,18 +3,22 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
 
-@media screen and (min-width: 20em){
+  @media screen and (min-width: 20em){
     background-color: #FFF;
     width: 251px;
     height: 328px;
     display: flex;
-    flex-direction: column; /* Alteração para exibir os itens em coluna */
+    flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centraliza horizontalmente */
+    align-items: center;
     margin: 0.5em 0;
     border-radius: 0.5em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     padding: 0;
+  }
+
+  @media screen and (min-width: 48em){
+    margin: 0.5em;
   }
 
   .name-price-container {

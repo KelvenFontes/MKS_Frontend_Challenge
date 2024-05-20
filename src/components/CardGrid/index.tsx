@@ -9,6 +9,7 @@ import formatCurrency from "@/util/formatCurrency";
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '@/lib/cartReducer';
 import { RootState } from '@/types/RootState';
+import { motion } from "framer-motion";
 
 interface CardProps {
   product: Product;
@@ -49,7 +50,24 @@ const CardGrid = ({ product }: CardProps) => {
       </div>
       <p className="description">{product.description}</p>
 
-      <div className="image-button-container" onClick={addItemToCart}>
+      <motion.div
+        className="image-button-container"
+        whileHover={{ scale: 1 }}
+        whileTap={{ scale: 0.8 }}
+        onClick={addItemToCart}
+      >
+        <Image
+          src={iconbuy}
+          alt='comprar'
+          width={14}
+          height={16}
+        />
+        <button>
+          Comprar
+        </button>
+      </motion.div>
+
+      {/* <div className="image-button-container" onClick={addItemToCart}>
         <Image
           src={iconbuy}
           alt='comprar'
@@ -59,7 +77,7 @@ const CardGrid = ({ product }: CardProps) => {
         <button >
           Comprar
         </button>
-      </div>
+      </div> */}
 
     </CardContainer>
   );
