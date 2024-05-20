@@ -21,6 +21,11 @@ export const CardContainer = styled.div`
     margin: 0.5em;
   }
 
+  &:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+  }
+
   .name-price-container {
     display: flex;
     justify-content: space-between; /* Isso vai colocar os elementos o mais longe possível */
