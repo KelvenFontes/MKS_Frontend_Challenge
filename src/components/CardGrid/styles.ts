@@ -21,10 +21,10 @@ export const CardContainer = styled.div`
     margin: 0.5em;
   }
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.02);
     transition: transform 0.3s;
-  }
+  } */
 
   .name-price-container {
     display: flex;
