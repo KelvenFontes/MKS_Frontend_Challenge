@@ -4,6 +4,7 @@ import { CardContainer } from "./styles";
 import { Product } from "@/types/Product";
 
 import iconbuy from '@/assets/iconbuy.png';
+import formatCurrency from "@/util/formatCurrency";
 
 interface CardProps {
   product: Product;
@@ -25,7 +26,7 @@ const CardGrid = ({ product }: CardProps) => {
         <p>{product.name}</p>
 
         <div className="price-item">
-          <p>R${product.price}</p>
+          <p>{formatCurrency(product.price)}</p>
         </div>
       </div>
       <p className="description">{product.description}</p>
