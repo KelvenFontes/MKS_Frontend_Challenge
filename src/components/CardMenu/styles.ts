@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const CardContainer = styled.div`
 
   @media screen and (min-width: 20em){
+    position: relative;
     background-color: #FFF;
     width: 251px;
     height: 328px;
@@ -177,6 +178,15 @@ export const CardContainer = styled.div`
         line-height: 17px;
         color: #000;
       }
+    }
+
+    .icon-remove {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
     }
 
   }
