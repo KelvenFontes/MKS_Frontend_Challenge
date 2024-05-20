@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import CardMenu from '../CardMenu';
 import { RootState } from '@/types/RootState';
+import { selectCartTotal } from '@/util/totalPriceCart';
 
 const StyledCartMenu = styled.div`
   position: fixed;
@@ -44,6 +45,24 @@ const StyledCartMenu = styled.div`
       font-weight: 700;
       line-height: 15px;
     }
+  }
+
+  .total-price {
+    position: absolute;
+    bottom: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5em;
+
+    p{
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 15px;
+      color: #FFFFFF;
+    }
+
   }
 
 
@@ -159,6 +178,8 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
   // const cartItems = useSelector(state => state?.cart.items);
   // const totalItems = useSelector(state => state?.cart.totalItems);
 
+  const total = useSelector((state: RootState) => selectCartTotal(state));
+
   console.log(cartItems);
   // console.log(totalItems);
 
@@ -186,8 +207,13 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
             ))}
           </ul>
         </div>
-
       </div>
+
+      <div className='total-price'>
+        <p>Total:</p>
+        <p>{total.toFixed(2)}</p>
+      </div>
+
 
       <div className='button-finish'>
         <p>Finalizar Compra</p>
@@ -198,3 +224,7 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 };
 
 export default CartMenu;
+function totalPriceCart(state: RootState): any {
+  throw new Error('Function not implemented.');
+}
+
