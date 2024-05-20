@@ -49,6 +49,7 @@ export const Content = styled.div`
     height: 26px;
     border-radius: 8px;
     margin-right: 16px;
+    cursor: pointer;
 
     p {
       font-size: 12px;
