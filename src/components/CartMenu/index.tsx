@@ -24,7 +24,7 @@ const StyledCartMenu = styled.div`
   align-items: center;
 
   .content {
-    max-height: calc(100% - 100px);
+    max-height: calc(100% - 170px);
   }
 
   .button-finish {
