@@ -6,11 +6,25 @@ import { Product } from "@/types/Product";
 import iconbuy from '@/assets/iconbuy.png';
 import formatCurrency from "@/util/formatCurrency";
 
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '@/lib/cartReducer';
+
 interface CardProps {
   product: Product;
 }
 
 const CardGrid = ({ product }: CardProps) => {
+
+  const cartItems = useSelector(state => state?.cart.items);
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    const quantity = 1;
+    const item = { ...product, quantity };
+    dispatch(addToCart(item));
+    console.log(cartItems);
+  };
+
   return (
     <CardContainer>
 
@@ -31,14 +45,16 @@ const CardGrid = ({ product }: CardProps) => {
       </div>
       <p className="description">{product.description}</p>
 
-      <div className="image-button-container">
+      <div className="image-button-container" onClick={addItemToCart}>
         <Image
           src={iconbuy}
           alt='comprar'
           width={14}
           height={16}
         />
-        <button>Comprar</button>
+        <button >
+          Comprar
+        </button>
       </div>
 
     </CardContainer>

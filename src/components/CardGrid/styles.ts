@@ -62,6 +62,7 @@ export const CardContainer = styled.div`
     margin-top: auto;
     background: #0F52BA;
     border-radius: 0 0 0.5em 0.5em;
+    cursor: pointer;
 
     button {
       background: transparent;
