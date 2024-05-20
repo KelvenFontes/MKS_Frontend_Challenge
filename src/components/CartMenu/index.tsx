@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import closeCart from '../../assets/Close_cart.png';
+import closeCartDesktop from '../../assets/CloseCartDesktop.png';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import CardMenu from '../CardMenu';
 import { RootState } from '@/types/RootState';
+import { selectCartTotal } from '@/util/totalPriceCart';
 
 const StyledCartMenu = styled.div`
   position: fixed;
@@ -15,24 +17,110 @@ const StyledCartMenu = styled.div`
   width: 330px;
   background: #0F52BA;
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  /* padding: 20px; */
   z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  .content {
+    max-height: calc(100% - 170px);
+  }
+
+  .button-finish {
+    background: #000;
+    color: #FFF;
+    cursor: pointer;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 15px;
+    }
+  }
+
+  .total-price {
+    position: absolute;
+    bottom: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5em;
+
+    p{
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 15px;
+      color: #FFFFFF;
+    }
+
+  }
+
+
   @media screen and (min-width: 48em){
     width: 480px;
 
+    .total-price {
+      bottom: 120px;
+    }
+
+    .content {
+    max-height: calc(100% - 188px);
+  }
+
+    .button-finish {
+    height: 97px;
+
+    p {
+
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 15px;
+    }
+  }
   }
 
   .card {
     cursor: pointer;
   }
 
-  .testeCard {
+  .displayCart {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 3.5em;
+    margin-top: 25px;
+  }
+
+  .closeCartDesktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 48em) {
+    .displayCart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10em;
+      margin-top: 25px;
+    }
+
+    .closeCartDesktop {
+      display: block;
+    }
+
+    .closeCartMobile {
+      display: none;
+    }
   }
 
   .cart-items {
@@ -67,6 +155,16 @@ const StyledCartMenu = styled.div`
 
 const MenuTitle = styled.h2`
   color: #FFF;
+  width: 178px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 32px;
+
+  span {
+    display: block;
+  }
+
 `;
 
 const MenuItem = styled.div`
@@ -84,25 +182,45 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
   // const cartItems = useSelector(state => state?.cart.items);
   // const totalItems = useSelector(state => state?.cart.totalItems);
 
+  const total = useSelector((state: RootState) => selectCartTotal(state));
+
   console.log(cartItems);
   // console.log(totalItems);
 
   return (
     <StyledCartMenu>
-      <div className='testeCard'>
-        <MenuTitle>Carrinho de compras</MenuTitle>
-        <div className='card' onClick={toggleMenu}>
-          <Image src={closeCart} alt='closeCart' />
+
+      <div className='content'>
+
+
+        <div className='displayCart'>
+          <MenuTitle>Carrinho <span>de compras</span></MenuTitle>
+          <div className='card closeCartMobile' onClick={toggleMenu}>
+            <Image src={closeCart} alt='closeCart' />
+          </div>
+          <div className='card closeCartDesktop' onClick={toggleMenu}>
+            <Image src={closeCartDesktop} alt='closeCartDesktop' />
+          </div>
+        </div>
+
+        <div className='cart-items'>
+          {/* <h3>Total de itens no carrinho: {totalItems}</h3> */}
+          <ul>
+            {cartItems.map((item: any) => (
+              <CardMenu key={item.id} product={item} />
+            ))}
+          </ul>
         </div>
       </div>
 
-      <div className='cart-items'>
-        {/* <h3>Total de itens no carrinho: {totalItems}</h3> */}
-        <ul>
-          {cartItems.map((item: any) => (
-            <CardMenu key={item.id} product={item} />
-          ))}
-        </ul>
+      <div className='total-price'>
+        <p>Total:</p>
+        <p>{total.toFixed(2)}</p>
+      </div>
+
+
+      <div className='button-finish'>
+        <p>Finalizar Compra</p>
       </div>
 
     </StyledCartMenu>
@@ -110,3 +228,7 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 };
 
 export default CartMenu;
+function totalPriceCart(state: RootState): any {
+  throw new Error('Function not implemented.');
+}
+
