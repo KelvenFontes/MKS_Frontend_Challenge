@@ -17,6 +17,9 @@ const StyledCartMenu = styled.div`
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 48em){
     width: 480px;
@@ -58,6 +61,7 @@ const StyledCartMenu = styled.div`
     &::-webkit-scrollbar-thumb:hover {
       background-color: #ffffff;
     }
+
   }
 `;
 
