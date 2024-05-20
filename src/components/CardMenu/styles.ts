@@ -15,11 +15,59 @@ export const CardContainer = styled.div`
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     padding: 0;
 
-    .div-image {
-      position: relative;
-      width: 128px;
-      height: 158px;
+    @media screen and (min-width: 20em){
+      width: 250px;
+      height: 220px;
+      display: flex;
+
+      .div-image {
+        position: relative;
+        width: 86px;
+        height: 100px;
+      }
+
+      .produc-name{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        color: #2C2C2C;
+      }
+
+      .name-price-container{
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .price-item {
+        width: 84px;
+        height: 34.81px;
+        top: 163.17px;
+        left: 143px;
+        gap: 0px;
+        border-radius: 5px;
+        opacity: 0px;
+        background: #373737;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        p {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 15px;
+          color: #FFF;
+        }
+      }
+
     }
+
+
 
     .container-quantity{
     display: flex;
