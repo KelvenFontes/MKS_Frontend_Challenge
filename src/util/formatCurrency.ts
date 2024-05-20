@@ -14,7 +14,6 @@ const formatarValor = (valor: string) => {
 
   const valorSemCentavos = valorFormatado.replace(',00', '').replace(' ', '');
 
-  console.log(valorSemCentavos);
   return valorSemCentavos;
 }
 
