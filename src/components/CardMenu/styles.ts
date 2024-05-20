@@ -165,13 +165,17 @@ export const CardContainer = styled.div`
       }
 
     }
-    .price-item{
-      p{
+    .price-item {
+        width: 100%;
+        height: 100%;
+        background: none;
+
+        p{
         font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         font-weight: 700;
         line-height: 17px;
-
+        color: #000;
       }
     }
 
