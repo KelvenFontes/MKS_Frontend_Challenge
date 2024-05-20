@@ -5,6 +5,7 @@ import closeCart from '../../assets/Close_cart.png';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import CardMenu from '../CardMenu';
+import { RootState } from '@/types/RootState';
 
 const StyledCartMenu = styled.div`
   position: fixed;
@@ -48,7 +49,8 @@ interface CardMenuProps {
 
 const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 
-  const cartItems = useSelector(state => state?.cart.items);
+  const cartItems = useSelector((state: RootState) => state?.cart.items);
+  // const cartItems = useSelector(state => state?.cart.items);
   // const totalItems = useSelector(state => state?.cart.totalItems);
 
   console.log(cartItems);

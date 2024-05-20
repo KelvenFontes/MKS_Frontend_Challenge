@@ -8,6 +8,7 @@ import formatCurrency from "@/util/formatCurrency";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '@/lib/cartReducer';
+import { RootState } from '@/types/RootState';
 
 interface CardProps {
   product: Product;
@@ -15,7 +16,10 @@ interface CardProps {
 
 const CardGrid = ({ product }: CardProps) => {
 
-  const cartItems = useSelector(state => state?.cart.items);
+
+  const cartItems = useSelector((state: RootState) => state?.cart.items);
+
+  // const cartItems = useSelector(state => state?.cart.items);
   const dispatch = useDispatch();
 
   const addItemToCart = () => {
