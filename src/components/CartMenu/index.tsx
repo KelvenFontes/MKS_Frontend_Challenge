@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import CardMenu from '../CardMenu';
 import { RootState } from '@/types/RootState';
 import { selectCartTotal } from '@/util/totalPriceCart';
+import formatCurrency from '@/util/formatCurrency';
 
 const StyledCartMenu = styled.div`
   position: fixed;
@@ -185,6 +186,10 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
   const total = useSelector((state: RootState) => selectCartTotal(state));
 
   console.log(cartItems);
+  function formatcurrency(arg0: string): React.ReactNode {
+    throw new Error('Function not implemented.');
+  }
+
   // console.log(totalItems);
 
   return (
@@ -215,7 +220,7 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 
       <div className='total-price'>
         <p>Total:</p>
-        <p>{total.toFixed(2)}</p>
+        <p>{formatCurrency(total.toFixed(2))}</p>
       </div>
 
 
@@ -228,7 +233,3 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 };
 
 export default CartMenu;
-function totalPriceCart(state: RootState): any {
-  throw new Error('Function not implemented.');
-}
-
