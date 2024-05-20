@@ -1,7 +1,3 @@
-// Define as ações
-const ADD_TO_CART = 'ADD_TO_CART';
-const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-
 interface CartState {
   items: {
     id: number;
@@ -36,7 +32,7 @@ const cartReducer = (state: CartState = initialState, action: any): CartState =>
         return { ...state, items: [...state.items, { id, name, price, photo, quantity }] };
       }
 
-    case REMOVE_FROM_CART:
+    case 'REMOVE_FROM_CART':
       const itemId = action.payload.id;
       const itemToRemove = state.items.find(item => item.id === itemId);
 
@@ -57,6 +53,12 @@ const cartReducer = (state: CartState = initialState, action: any): CartState =>
       }
       return state;
 
+      case 'REMOVE_ITEM_FROM_CART':
+        return {
+          ...state,
+          items: state.items.filter(item => item.id !== action.payload.id)
+        };
+
 
     default:
       return state;
@@ -66,6 +68,11 @@ const cartReducer = (state: CartState = initialState, action: any): CartState =>
 export const addToCart = (item: { id: number; name: string; price: string; photo: string, quantity: number }) => ({
   type: 'ADD_TO_CART',
   payload: item
+});
+
+export const removeItemFromCart = (id: number) => ({
+  type: 'REMOVE_ITEM_FROM_CART',
+  payload: { id }
 });
 
 export const removeFromCart = (id: number) => ({

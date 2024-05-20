@@ -3,8 +3,10 @@ import { CardContainer } from "./styles";
 
 import less from '@/assets/less.svg';
 import more from '@/assets/more.svg';
+import iconRemove from '@/assets/CloseCartDesktop.png';
+import removeItem from '@/assets/removeItem.png';
 import formatCurrency from "@/util/formatCurrency";
-import { addToCart, removeFromCart } from "@/lib/cartReducer";
+import { addToCart, removeFromCart, removeItemFromCart } from "@/lib/cartReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from '@/types/RootState';
 
@@ -28,6 +30,11 @@ const CardMenu = ({ product }: CardMenuProps) => {
     const item = product.id;
     dispatch(removeFromCart(item));
     console.log(cartItems);
+  };
+
+  const handleremoveItemFromCart = () => {
+    const item = product.id;
+    dispatch(removeItemFromCart(item));
   };
 
   return (
@@ -56,6 +63,14 @@ const CardMenu = ({ product }: CardMenuProps) => {
         <div className="price-item">
           <p>{formatCurrency(product.price)}</p>
         </div>
+      </div>
+
+      <div className="icon-remove icon-remove-mobile" onClick={handleremoveItemFromCart}>
+        <Image src={removeItem} alt='icon remove' layout="fill" objectFit="cover"/>
+      </div>
+
+      <div className="icon-remove icon-remove-desktop" onClick={handleremoveItemFromCart}>
+        <Image src={iconRemove} alt='icon remove' layout="fill" objectFit="cover"/>
       </div>
 
 

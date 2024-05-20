@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const CardContainer = styled.div`
 
   @media screen and (min-width: 20em){
+    position: relative;
     background-color: #FFF;
     width: 251px;
     height: 328px;
@@ -10,7 +11,7 @@ export const CardContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0.5em 0;
+    margin: 1em 0;
     border-radius: 0.5em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     padding: 0;
@@ -63,6 +64,19 @@ export const CardContainer = styled.div`
           line-height: 15px;
           color: #FFF;
         }
+      }
+
+      .icon-remove-desktop {
+        display: none;
+      }
+
+      .icon-remove-mobile {
+        position: absolute;
+        top: 0.5em;
+        right: 0.7em;
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
       }
 
     }
@@ -177,6 +191,23 @@ export const CardContainer = styled.div`
         line-height: 17px;
         color: #000;
       }
+    }
+
+    .icon-remove-mobile{
+      display: none;
+    }
+
+    .icon-remove-desktop{
+      display: flex;
+    }
+
+    .icon-remove {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
     }
 
   }

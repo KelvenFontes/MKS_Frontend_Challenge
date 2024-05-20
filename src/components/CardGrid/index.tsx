@@ -77,7 +77,7 @@ const CardGrid = ({ product }: CardProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             style={{
-              position: 'absolute',
+              position: 'fixed',
               top: '25%',
               left: '25%',
               width: '50%',
