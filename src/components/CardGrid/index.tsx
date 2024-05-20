@@ -3,7 +3,7 @@ import { CardContainer } from "./styles";
 
 import { Product } from "@/types/Product";
 
-import iconbuy from '@/assets/iconbuy.png';
+import iconbuy from '@/assets/iconBuy.png';
 import formatCurrency from "@/util/formatCurrency";
 
 import { useSelector, useDispatch } from 'react-redux';
