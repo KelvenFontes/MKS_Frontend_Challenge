@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0.5em 0;
+    margin: 1em 0;
     border-radius: 0.5em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     padding: 0;
@@ -195,6 +195,10 @@ export const CardContainer = styled.div`
 
     .icon-remove-mobile{
       display: none;
+    }
+
+    .icon-remove-desktop{
+      display: flex;
     }
 
     .icon-remove {
