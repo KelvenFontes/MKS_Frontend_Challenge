@@ -72,7 +72,7 @@ export default function Home() {
         {isLoading && (
           <SkeletonTheme baseColor="#ddd" highlightColor="#ccc">
             <ProductList>
-              {Array(8).fill().map((_, index) => (
+              {Array.from({ length: 8 }).map((_, index) => (
                 <ProductItem key={index}>
                   <SkeletonWrapper>
                     <Skeleton circle={true} height={100} width={100} />
