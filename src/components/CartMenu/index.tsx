@@ -22,6 +22,10 @@ const StyledCartMenu = styled.div`
   flex-direction: column;
   align-items: center;
 
+  .content {
+    max-height: calc(100% - 100px);
+  }
+
   .button-finish {
     background: #000;
     color: #FFF;
@@ -45,6 +49,21 @@ const StyledCartMenu = styled.div`
 
   @media screen and (min-width: 48em){
     width: 480px;
+
+    .content {
+    max-height: calc(100% - 130px);
+  }
+
+    .button-finish {
+    height: 97px;
+
+    p {
+
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 15px;
+    }
+  }
   }
 
   .card {
@@ -146,23 +165,28 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
   return (
     <StyledCartMenu>
 
-      <div className='displayCart'>
-        <MenuTitle>Carrinho <span>de compras</span></MenuTitle>
-        <div className='card closeCartMobile' onClick={toggleMenu}>
-          <Image src={closeCart} alt='closeCart' />
-        </div>
-        <div className='card closeCartDesktop' onClick={toggleMenu}>
-          <Image src={closeCartDesktop} alt='closeCartDesktop' />
-        </div>
-      </div>
+      <div className='content'>
 
-      <div className='cart-items'>
-        {/* <h3>Total de itens no carrinho: {totalItems}</h3> */}
-        <ul>
-          {cartItems.map((item: any) => (
-            <CardMenu key={item.id} product={item} />
-          ))}
-        </ul>
+
+        <div className='displayCart'>
+          <MenuTitle>Carrinho <span>de compras</span></MenuTitle>
+          <div className='card closeCartMobile' onClick={toggleMenu}>
+            <Image src={closeCart} alt='closeCart' />
+          </div>
+          <div className='card closeCartDesktop' onClick={toggleMenu}>
+            <Image src={closeCartDesktop} alt='closeCartDesktop' />
+          </div>
+        </div>
+
+        <div className='cart-items'>
+          {/* <h3>Total de itens no carrinho: {totalItems}</h3> */}
+          <ul>
+            {cartItems.map((item: any) => (
+              <CardMenu key={item.id} product={item} />
+            ))}
+          </ul>
+        </div>
+
       </div>
 
       <div className='button-finish'>
