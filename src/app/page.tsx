@@ -15,21 +15,41 @@ import styled from "styled-components";
 import { useState } from "react";
 import CartMenu from "@/components/CartMenu";
 
-const ProductList = styled.ul`
 
-  @media screen and (min-width: 20em){
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      margin: 1.4em 0;
+const Container = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  @media screen and (min-width: 48em){
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    list-style: none;
-    padding: 0;
+`;
+
+const ProductList = styled.ul`
+
+
+display: grid;
+align-items: center;
+justify-content: center;
+
+  @media screen and (min-width: 20em){
+      margin: 1.4em 0;
+    }
+
+    @media screen and (min-width: 48em){
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1em;
+      list-style: none;
+      padding: 0;
+      margin: 1.4em 0;
   }
 
 `;
@@ -66,7 +86,7 @@ export default function Home() {
   );
 
   return (
-    <>
+    <Container>
       <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <main>
         {isLoading && (
@@ -97,6 +117,6 @@ export default function Home() {
       {isMenuOpen && <CartMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
 
       <Footer />
-    </>
+    </Container>
   );
 }
