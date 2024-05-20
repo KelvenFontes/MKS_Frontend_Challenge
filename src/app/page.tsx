@@ -4,6 +4,7 @@ import CardGrid from "@/components/CardGrid";
 import Footer from "@/components/Footer";
 import { Header } from "@/components/Header";
 // import CartMenu from '@/components/CartMenu';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Product } from "@/types/Product";
 
@@ -69,7 +70,7 @@ export default function Home() {
       <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <main>
         {isLoading && (
-          <SkeletonTheme color="#ddd" highlightColor="#ccc">
+          <SkeletonTheme baseColor="#ddd" highlightColor="#ccc">
             <ProductList>
               {Array(8).fill().map((_, index) => (
                 <ProductItem key={index}>
