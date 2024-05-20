@@ -3,11 +3,16 @@
 import CardGrid from "@/components/CardGrid";
 import Footer from "@/components/Footer";
 import { Header } from "@/components/Header";
+// import CartMenu from '@/components/CartMenu';
+
 import { Product } from "@/types/Product";
+
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useQuery } from "react-query";
 
 import styled from "styled-components";
+import { useState } from "react";
+import CartMenu from "@/components/CartMenu";
 
 const ProductList = styled.ul`
 
@@ -22,7 +27,7 @@ const ProductList = styled.ul`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
-    list-style: none; /* Remove list markers */
+    list-style: none;
     padding: 0;
   }
 
@@ -47,6 +52,13 @@ const SkeletonWrapper = styled.div`
 
 export default function Home() {
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    console.log(isMenuOpen);
+  };
+
   const { data, isLoading, isError } = useQuery(['products'], () =>
     fetch('https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC')
       .then(response => response.json())
@@ -54,7 +66,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <main>
         {isLoading && (
           <SkeletonTheme color="#ddd" highlightColor="#ccc">
@@ -80,6 +92,9 @@ export default function Home() {
           </ProductList>
         )}
       </main>
+
+      {isMenuOpen && <CartMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
+
       <Footer />
     </>
   );
