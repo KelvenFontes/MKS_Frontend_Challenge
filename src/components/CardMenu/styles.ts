@@ -7,16 +7,21 @@ export const CardContainer = styled.div`
     width: 251px;
     height: 328px;
     display: flex;
-    flex-direction: column; /* Alteração para exibir os itens em coluna */
+    flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centraliza horizontalmente */
+    align-items: center;
     margin: 0.5em 0;
     border-radius: 0.5em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     padding: 0;
-  }
 
-  .container-quantity{
+    .div-image {
+      position: relative;
+      width: 128px;
+      height: 158px;
+    }
+
+    .container-quantity{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -47,5 +52,82 @@ export const CardContainer = styled.div`
       padding: 0.5em;
       border-left: 1px solid #BFBFBF;
     }
+  }
+
+  @media screen and (min-width: 48em){
+    display: flex;
+    flex-direction: row;
+    width: 385px;
+    height: 101px;
+    gap: 1em;
+    margin: 22px 0;
+
+    .div-image {
+      width: 46px;
+      height: 58px;
+    }
+
+    .name-price-container{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+    }
+
+    .produc-name {
+      width: 114px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17px;
+      color: #2C2C2C;
+    }
+
+    .container-quantity{
+      width: 50px;
+      height: 19px;
+      justify-content:center;
+      gap: .3em;
+
+      p{
+         font-size: 8px;
+         line-height: 9.75;
+         font-weight: 400;
+         font-family: 'Montserrat', sans-serif;
+         padding: 0;
+      }
+
+      .less {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 0.3em;
+        border-right: 1px solid #BFBFBF;
+      }
+
+      .more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 0.1em 0.2em;
+        border-left: 1px solid #BFBFBF;
+      }
+
+    }
+    .price-item{
+      p{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17px;
+
+      }
+    }
+
+  }
+
   }
 `;

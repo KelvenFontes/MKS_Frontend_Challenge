@@ -33,15 +33,11 @@ const CardMenu = ({ product }: CardMenuProps) => {
   return (
     <CardContainer>
 
-      <Image
-        src={product.photo}
-        alt={product.name}
-        width={128}
-        height={158}
-        style={{ marginTop: '1.5em' }}
-      />
+      <div className="div-image">
+        <Image src={product.photo} alt={product.name} fill objectFit="contain" />
+      </div>
 
-      <p>{product.name}</p>
+      <p className="produc-name">{product.name}</p>
 
       <div className="name-price-container">
 
@@ -49,7 +45,9 @@ const CardMenu = ({ product }: CardMenuProps) => {
           <div className="less" onClick={handleremoveFromCart}>
             <Image src={less} alt='less' />
           </div>
+
           <p>{product.quantity}</p>
+
           <div className="more" onClick={addItemToCart}>
             <Image src={more} alt='more' />
           </div>
