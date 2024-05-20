@@ -66,6 +66,19 @@ export const CardContainer = styled.div`
         }
       }
 
+      .icon-remove-desktop {
+        display: none;
+      }
+
+      .icon-remove-mobile {
+        position: absolute;
+        top: 0.5em;
+        right: 0.7em;
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+      }
+
     }
 
 
@@ -178,6 +191,10 @@ export const CardContainer = styled.div`
         line-height: 17px;
         color: #000;
       }
+    }
+
+    .icon-remove-mobile{
+      display: none;
     }
 
     .icon-remove {

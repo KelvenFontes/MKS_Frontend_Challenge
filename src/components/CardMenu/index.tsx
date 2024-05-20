@@ -4,6 +4,7 @@ import { CardContainer } from "./styles";
 import less from '@/assets/less.svg';
 import more from '@/assets/more.svg';
 import iconRemove from '@/assets/CloseCartDesktop.png';
+import removeItem from '@/assets/removeItem.png';
 import formatCurrency from "@/util/formatCurrency";
 import { addToCart, removeFromCart, removeItemFromCart } from "@/lib/cartReducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,9 +65,14 @@ const CardMenu = ({ product }: CardMenuProps) => {
         </div>
       </div>
 
-      <div className="icon-remove" onClick={handleremoveItemFromCart}>
+      <div className="icon-remove icon-remove-mobile" onClick={handleremoveItemFromCart}>
+        <Image src={removeItem} alt='icon remove' layout="fill" objectFit="cover"/>
+      </div>
+
+      <div className="icon-remove icon-remove-desktop" onClick={handleremoveItemFromCart}>
         <Image src={iconRemove} alt='icon remove' layout="fill" objectFit="cover"/>
       </div>
+
 
     </CardContainer>
   );
