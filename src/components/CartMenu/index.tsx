@@ -18,6 +18,11 @@ const StyledCartMenu = styled.div`
   padding: 20px;
   z-index: 1000;
 
+  @media screen and (min-width: 48em){
+    width: 480px;
+
+  }
+
   .card {
     cursor: pointer;
   }
@@ -28,9 +33,31 @@ const StyledCartMenu = styled.div`
   }
 
   .cart-items {
-    max-height: calc(100% - 60px); /* Ajuste a altura máxima conforme necessário */
+    max-height: calc(100% - 60px);
     overflow-y: auto;
-    padding-right: 10px; /* Adiciona espaço para a barra de rolagem */
+    padding-right: 10px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff #0F52BA;
+
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #0F52BA;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ffffff;
+      border-radius: 8px;
+      border: 2px solid #0F52BA;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #ffffff;
+    }
   }
 `;
 
