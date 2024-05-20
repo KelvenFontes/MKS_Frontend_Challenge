@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import closeCart from '../../assets/Close_cart.png';
+import closeCartDesktop from '../../assets/CloseCartDesktop.png';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import CardMenu from '../CardMenu';
@@ -54,6 +55,30 @@ const StyledCartMenu = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 3.5em;
+    margin-top: 25px;
+  }
+
+  .closeCartDesktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 48em) {
+    .displayCart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10em;
+      margin-top: 25px;
+    }
+
+    .closeCartDesktop {
+      display: block;
+    }
+
+    .closeCartMobile {
+      display: none;
+    }
   }
 
   .cart-items {
@@ -88,6 +113,16 @@ const StyledCartMenu = styled.div`
 
 const MenuTitle = styled.h2`
   color: #FFF;
+  width: 178px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 32px;
+
+  span {
+    display: block;
+  }
+
 `;
 
 const MenuItem = styled.div`
@@ -112,9 +147,12 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
     <StyledCartMenu>
 
       <div className='displayCart'>
-        <MenuTitle>Carrinho de compras</MenuTitle>
-        <div className='card' onClick={toggleMenu}>
+        <MenuTitle>Carrinho <span>de compras</span></MenuTitle>
+        <div className='card closeCartMobile' onClick={toggleMenu}>
           <Image src={closeCart} alt='closeCart' />
+        </div>
+        <div className='card closeCartDesktop' onClick={toggleMenu}>
+          <Image src={closeCartDesktop} alt='closeCartDesktop' />
         </div>
       </div>
 
