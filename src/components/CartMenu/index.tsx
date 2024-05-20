@@ -15,15 +15,35 @@ const StyledCartMenu = styled.div`
   width: 330px;
   background: #0F52BA;
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  /* padding: 20px; */
   z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  .button-finish {
+    background: #000;
+    color: #FFF;
+    cursor: pointer;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 15px;
+    }
+  }
+
+
   @media screen and (min-width: 48em){
     width: 480px;
-
   }
 
   .card {
@@ -89,6 +109,7 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
 
   return (
     <StyledCartMenu>
+
       <div className='testeCard'>
         <MenuTitle>Carrinho de compras</MenuTitle>
         <div className='card' onClick={toggleMenu}>
@@ -103,6 +124,10 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
             <CardMenu key={item.id} product={item} />
           ))}
         </ul>
+      </div>
+
+      <div className='button-finish'>
+        <p>Finalizar Compra</p>
       </div>
 
     </StyledCartMenu>
