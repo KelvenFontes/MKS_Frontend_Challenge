@@ -6,14 +6,15 @@ import more from '@/assets/more.svg';
 import formatCurrency from "@/util/formatCurrency";
 import { addToCart, removeFromCart } from "@/lib/cartReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from '@/types/RootState';
 
 interface CardMenuProps {
   product: any;
 }
 
 const CardMenu = ({ product }: CardMenuProps) => {
-
-  const cartItems = useSelector(state => state?.cart.items);
+  const cartItems = useSelector((state: RootState) => state?.cart.items);
+  // const cartItems = useSelector(state => state?.cart.items);
   const dispatch = useDispatch();
 
   const addItemToCart = () => {
