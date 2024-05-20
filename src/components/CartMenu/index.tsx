@@ -50,9 +50,10 @@ const StyledCartMenu = styled.div`
     cursor: pointer;
   }
 
-  .testeCard {
+  .displayCart {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .cart-items {
@@ -110,7 +111,7 @@ const CartMenu = ({ isMenuOpen, toggleMenu }: CardMenuProps) => {
   return (
     <StyledCartMenu>
 
-      <div className='testeCard'>
+      <div className='displayCart'>
         <MenuTitle>Carrinho de compras</MenuTitle>
         <div className='card' onClick={toggleMenu}>
           <Image src={closeCart} alt='closeCart' />
